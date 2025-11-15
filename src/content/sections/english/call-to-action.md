@@ -1,15 +1,15 @@
 ---
 # For Updating Contact Info Like Email, Phone Number, Address, etc. Please update in `src/config/config.toml` `settings.contactInfo` table
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Let’s Work Together"
+title: "Ready to build something great?"
 description: |
-  We are digital agency that helps businesses develop immersive and engaging user experiences
+  Let's talk about your project. No pressure, no sales pitch—just an honest conversation about what you need and how we can help.
 
 button:
   enable: true
   variant: "fill" # Options: "fill" | "outline" | "text" | "circle"
-  label: "Let’s Talk with us"
-  url: "/"
+  label: "Let's talk"
+  url: "/#footer-with-contact"
   rel: ""
   target: ""
 

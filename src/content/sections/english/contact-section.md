@@ -96,14 +96,23 @@ form:
         search: # if type is search then it will work
           placeholder: ""
         items:
-          - label: "General Inquiry"
-            value: "General Inquiry"
+          - label: "New Website"
+            value: "New Website"
             selected: false
-          - label: "Partnership Opportunity"
-            value: "Partnership Opportunity"
+          - label: "Website Redesign"
+            value: "Website Redesign"
             selected: false
-          - label: "Investment Opportunity"
-            value: "Investment Opportunity"
+          - label: "E-Commerce Store"
+            value: "E-Commerce Store"
+            selected: false
+          - label: "Branding"
+            value: "Branding"
+            selected: false
+          - label: "Maintenance & Support"
+            value: "Maintenance & Support"
+            selected: false
+          - label: "Other"
+            value: "Other"
             selected: false
     - label: ""
       placeholder: "Subject With Search *"
@@ -155,23 +164,31 @@ form:
       type: "radio"
       halfWidth: true
       defaultValue: ""
-    # - label: "Referral" # only valid for type="checkbox" & type === "radio"
-    #   name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
-    #   required: true
-    #   groupLabel: "" # Radio Inputs Label
-    #   group: "source" # when you add group then it will omit space between the same group radio input
-    #   type: "radio"
-    #   halfWidth: true
-    #   defaultValue: ""
-    # - label: "Other" # only valid for type="checkbox" & type === "radio"
-    #   name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
-    #   required: true
-    #   groupLabel: "" # Radio Inputs Label
-    #   group: "source" # when you add group then it will omit space between the same group radio input
-    #   type: "radio"
-    #   halfWidth: true
-    #   defaultValue: ""
-    - label: "I agree to the terms and conditions and [privacy policy](/)." # only valid for type="checkbox" & type === "radio"
+    - label: "Referral" # only valid for type="checkbox" & type === "radio"
+      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "LinkedIn" # only valid for type="checkbox" & type === "radio"
+      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "Other" # only valid for type="checkbox" & type === "radio"
+      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "I agree to be contacted about my project" # only valid for type="checkbox" & type === "radio"
       id: "privacy-policy"
       name: "Agreed Privacy" # This is crucial. Its indicate under which name you want to receive this field data
       value: "Agreed" # Value that will be submit (applicable for type="checkbox" & type === "radio")
@@ -182,8 +199,8 @@ form:
       defaultValue: ""
     - note: success # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message success"
-      content: We have received your message! We'll get back to you as soon as possible.
+      content: Thanks for reaching out! We'll review your message and get back to you within 24 hours.
     - note: deprecated # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message error"
-      content: Something went wrong! please use this mail - [folex-astro-theme@gmail.com](mailto:folex-astro-theme@gmail.com) to submit a ticket!
+      content: Something went wrong. Please email us directly at [hello@innovista.design](mailto:hello@innovista.design)
 ---
