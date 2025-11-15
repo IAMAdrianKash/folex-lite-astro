@@ -4,67 +4,69 @@ title: ""
 
 list:
   - enable: true
-    name: "Personal"
-    description: "We care about their success. For us real relationships feel real"
+    name: "Starter Website"
+    description: "Perfect for small businesses and startups ready to establish their online presence."
     price:
-      prependValue: "$"
-      value: "180"
-      appendValue: "/mo"
+      prependValue: "Starting at $"
+      value: "3,500"
+      appendValue: ""
     features:
-      - WEB & MOBILE
-      - FREE CUSTOM DOMAIN
-      - BEST HOSTING EVER
-      - OUTSTANDING SUPPORT
-      - WEB DESIGN
+      - 5-7 page website
+      - Mobile-responsive design
+      - Basic SEO setup
+      - Content management training
+      - 30 days post-launch support
     button:
       # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
       enable: true
-      label: "CHOOSE THIS PLAN"
-      url: "/"
+      label: "Get a quote"
+      url: "/#footer-with-contact"
       # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
       # variant: "" # Optional: fill | outline | text | circle
       # rel: "" # Optional
       # target: "" # Optional
   - enable: true
-    name: "Startup"
-    description: "We care about their success. For us real relationships feel real"
+    name: "Professional Website"
+    description: "For growing businesses that need a robust digital presence with advanced features."
     price:
-      prependValue: "$"
-      value: "180"
-      appendValue: "/mo"
+      prependValue: "Starting at $"
+      value: "7,500"
+      appendValue: ""
     features:
-      - WEB & MOBILE
-      - FREE CUSTOM DOMAIN
-      - BEST HOSTING EVER
-      - OUTSTANDING SUPPORT
-      - WEB DESIGN
+      - 10-15 page website
+      - Custom design & development
+      - Advanced SEO optimization
+      - Forms & integrations
+      - Analytics setup
+      - 60 days post-launch support
     button:
       # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
       enable: true
-      label: "CHOOSE THIS PLAN"
-      url: "/"
+      label: "Get a quote"
+      url: "/#footer-with-contact"
       # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
       # variant: "" # Optional: fill | outline | text | circle
       # rel: "" # Optional
       # target: "" # Optional
   - enable: true
-    name: "Corporate"
-    description: "We care about their success. For us real relationships feel real"
+    name: "E-Commerce Store"
+    description: "Complete online store solutions for businesses ready to sell products online."
     price:
-      prependValue: "$"
-      value: "180"
-      appendValue: "/mo"
+      prependValue: "Starting at $"
+      value: "10,000"
+      appendValue: ""
     features:
-      - WEB & MOBILE
-      - FREE CUSTOM DOMAIN
-      - BEST HOSTING EVER
-      - OUTSTANDING SUPPORT
-      - WEB DESIGN
+      - Custom Shopify or WooCommerce
+      - Up to 50 products (setup)
+      - Payment & shipping integration
+      - Inventory management
+      - Conversion optimization
+      - 90 days post-launch support
     button:
       # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
       enable: true
-      label: "CHOOSE THIS PLAN"
-      url: "/"
+      label: "Get a quote"
+      url: "/#footer-with-contact"
       # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
       # variant: "" # Optional: fill | outline | text | circle
       # rel: "" # Optional

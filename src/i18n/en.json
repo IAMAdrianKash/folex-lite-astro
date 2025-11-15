@@ -8,14 +8,14 @@
     "paginationPortfolioNext": "Next Portfolio"
   },
   "headerOffcanvas": {
-    "description": "We are a digital agency that helps businesses create immersive experiences.",
-    "buttonLabel": "Let’s Talk With Us"
+    "description": "Web design and development for Canadian businesses. Based in Edmonton, Alberta.",
+    "buttonLabel": "Let's talk"
   },
   "navigation": {
-    "buttonLabel": "Get Started"
+    "buttonLabel": "Let's talk"
   },
   "footer": {
-    "copyright": "Copyright © {{ year }} by your company / Crafted with [Getastrothemes](https://getastrothemes.com/)",
+    "copyright": "© {{ year }} Innovista Design Studio. All rights reserved. / Hosted by Innovista Cloud",
     "_comment": "We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!"
   }
 }
