@@ -7,9 +7,9 @@ list:
     name: "Starter Website"
     description: "Perfect for small businesses and startups ready to establish their online presence."
     price:
-      prependValue: "Starting at $"
+      prependValue: "$"
       value: "3,500"
-      appendValue: ""
+      appendValue: "+"
     features:
       - 5-7 page website
       - Mobile-responsive design
@@ -29,9 +29,9 @@ list:
     name: "Professional Website"
     description: "For growing businesses that need a robust digital presence with advanced features."
     price:
-      prependValue: "Starting at $"
+      prependValue: "$"
       value: "7,500"
-      appendValue: ""
+      appendValue: "+"
     features:
       - 10-15 page website
       - Custom design & development
@@ -52,9 +52,9 @@ list:
     name: "E-Commerce Store"
     description: "Complete online store solutions for businesses ready to sell products online."
     price:
-      prependValue: "Starting at $"
+      prependValue: "$"
       value: "10,000"
-      appendValue: ""
+      appendValue: "+"
     features:
       - Custom Shopify or WooCommerce
       - Up to 50 products (setup)
