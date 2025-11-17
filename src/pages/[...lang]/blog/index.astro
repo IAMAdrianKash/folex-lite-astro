@@ -1,0 +1,51 @@
+---
+import Base from "@/layouts/Base.astro";
+import { generatePaths } from "@/lib/utils/i18nUtils";
+import { getEntryCTM, getCollectionCTM } from "@/lib/customContentLoader.astro";
+import { parseTomlToJson } from "@/lib/utils/tomlUtils";
+import BlogCard from "@/components/cards/BlogCard.astro";
+import PageHeader from "@/components/widgets/PageHeader.astro";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const config = parseTomlToJson();
+const { blogFolder }: { blogFolder: "blog" } = config.settings;
+
+const page = await getEntryCTM(blogFolder, "-index", Astro.currentLocale);
+let blogs = await getCollectionCTM(blogFolder, Astro.currentLocale);
+
+// Sort blogs by date (newest first)
+blogs = blogs.sort((a, b) => {
+  const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+  const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+  return dateB - dateA;
+});
+
+// Filter out draft posts in production
+if (import.meta.env.PROD) {
+  blogs = blogs.filter(blog => !blog.data.draft);
+}
+---
+
+<Base {...page?.data}>
+  <PageHeader title="Blog" />
+
+  <section class="section">
+    <div class="container">
+      {blogs.length > 0 ? (
+        <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {blogs.map((blog, index) => (
+            <BlogCard content={blog} index={index} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <h2 class="text-h2 mb-4">No blog posts yet</h2>
+          <p class="text-lg opacity-70">Check back soon for updates!</p>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>
