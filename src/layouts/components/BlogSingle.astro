@@ -1,0 +1,68 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  content: CollectionEntry<"blog">;
+};
+
+const { content } = Astro.props;
+const { title, image, date, author, categories, readingTime } = content.data;
+const { Content } = await content.render();
+
+// Format date
+const formattedDate = date ? new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}) : '';
+
+const hasCategories = Array.isArray(categories) && categories.length > 0;
+---
+
+<section class="section">
+  <div class="container">
+    <article class="mx-auto max-w-4xl">
+      <!-- Header -->
+      <header class="mb-12 text-center">
+        {hasCategories && (
+          <ul class="mb-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm opacity-80">
+            {categories.map((category: string, index: number) => (
+              <>
+                {index > 0 && <li>/</li>}
+                <li set:html={markdownify(category)} />
+              </>
+            ))}
+          </ul>
+        )}
+
+        {title && (
+          <h1 class="text-display-5 md:text-display-4 mb-6 leading-tight" set:html={markdownify(title)} />
+        )}
+
+        <div class="flex items-center justify-center gap-x-6 text-sm opacity-70">
+          {author && <span>By {author}</span>}
+          {formattedDate && <time datetime={date?.toISOString()}>{formattedDate}</time>}
+          {readingTime && <span>{readingTime}</span>}
+        </div>
+      </header>
+
+      <!-- Featured Image -->
+      {image && (
+        <div class="mb-12">
+          <OptimizedImage
+            src={image}
+            alt={title || "Blog post image"}
+            class="h-auto w-full object-cover"
+          />
+        </div>
+      )}
+
+      <!-- Content -->
+      <div class="prose prose-lg prose-headings:font-bold prose-headings:text-text-default prose-p:text-text-default prose-a:text-primary prose-strong:text-text-default prose-ul:text-text-default prose-ol:text-text-default max-w-none">
+        <Content />
+      </div>
+    </article>
+  </div>
+</section>

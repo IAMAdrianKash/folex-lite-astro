@@ -1,0 +1,95 @@
+---
+import { markdownify, toSentenceCase } from "@/lib/utils/textConverter";
+import { getLocaleUrlCTM, useTranslations } from "@/lib/utils/i18nUtils";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  index?: number;
+  class?: string;
+  content: CollectionEntry<"blog">;
+  [key: string]: any;
+};
+
+let {
+  index,
+  rest,
+  content,
+  class: className,
+} = Astro.props;
+
+let {
+  id,
+  collection,
+  data: { title, categories, image, description, date, readingTime, customSlug },
+} = content;
+
+const t = await useTranslations(Astro.currentLocale as string);
+const slug = getLocaleUrlCTM(customSlug || id, Astro.currentLocale, collection);
+const hasCategories = Array.isArray(categories) && categories.length > 0;
+
+// Format date
+const formattedDate = date ? new Date(date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}) : '';
+---
+
+<article
+  class:list={[
+    className,
+    "group flex flex-col items-start justify-start",
+  ]}
+  {...rest}>
+  {image && (
+    <a
+      title={toSentenceCase(t("common.learnMoreAbout") + " " + title)}
+      class="order-1 inline-block w-full overflow-hidden mb-6"
+      href={slug}
+      {...{
+        "data-aos":
+          index !== undefined &&
+          ["reveal-anim-left", "reveal-anim-right", "reveal-anim-top"][
+            index % 3
+          ],
+      }}>
+      <OptimizedImage
+        src={image}
+        alt={title || "Blog post image"}
+        class="h-80 w-full scale-110 object-cover transition duration-500 group-hover:scale-100"
+      />
+    </a>
+  )}
+
+  {hasCategories && (
+    <ul class="flex flex-wrap items-center gap-x-2 gap-y-1 opacity-80 order-2 mb-3">
+      {categories.map((category: string, index: number) => (
+        <>
+          {index > 0 && <li>/</li>}
+          <li class="text-sm" set:html={markdownify(category)} />
+        </>
+      ))}
+    </ul>
+  )}
+
+  {title && (
+    <h3 class="text-h3-sm md:text-h3 order-3 leading-snug text-inherit mb-3">
+      <a
+        href={slug}
+        class="hover:text-primary transition-colors"
+        title={toSentenceCase(t("common.learnMoreAbout") + " " + title)}>
+        {title}
+      </a>
+    </h3>
+  )}
+
+  {description && (
+    <p class="order-4 mb-4 opacity-80" set:html={markdownify(description)} />
+  )}
+
+  <div class="order-5 flex items-center gap-x-4 text-sm opacity-60">
+    {formattedDate && <time datetime={date?.toISOString()}>{formattedDate}</time>}
+    {readingTime && <span>{readingTime}</span>}
+  </div>
+</article>

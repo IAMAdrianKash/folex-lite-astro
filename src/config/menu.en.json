@@ -17,6 +17,11 @@
     },
     {
       "enable": true,
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "enable": true,
       "name": "Pricing",
       "url": "/#pricing"
     }

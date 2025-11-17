@@ -6,6 +6,7 @@ import { glob } from "astro/loaders";
 const config = parseTomlToJson();
 const portfolioFolder = config.settings.portfolioFolder || "portfolio";
 const servicesFolder = config.settings.servicesFolder || "services";
+const blogFolder = config.settings.blogFolder || "blog";
 
 // Universal Page Schema
 export const page = z.object({
@@ -70,6 +71,17 @@ const portfolioCollection = defineCollection({
   ),
 });
 
+// Blog Collection
+const blogCollection = defineCollection({
+  // Load Markdown and MDX files in the `src/content/blog/` directory.
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
+  schema: page.merge(
+    z.object({
+      readingTime: z.string().optional(),
+    }),
+  ),
+});
+
 // Export collections
 export const collections = {
   // To prevent, getEntry (Content fetching API) throws error when collection does not exist, we specify a default collection along with the schema of each required collection
@@ -77,6 +89,8 @@ export const collections = {
   services: serviceCollection,
   [portfolioFolder]: portfolioCollection,
   portfolio: portfolioCollection,
+  [blogFolder]: blogCollection,
+  blog: blogCollection,
 
   pages: pagesCollection,
   sections: defineCollection({}),
